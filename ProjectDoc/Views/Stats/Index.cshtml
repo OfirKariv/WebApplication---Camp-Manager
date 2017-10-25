@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProjectDoc.Models.Stats>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CampID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerGoals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerAssists)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerInter)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CampID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerGoals)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerAssists)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerInter)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

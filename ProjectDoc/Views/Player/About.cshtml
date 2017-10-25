@@ -1,0 +1,240 @@
+﻿@{
+    ViewBag.Title = "About";
+    <link rel="stylesheet" type="text/css" href="~/Content/aboutStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    Layout = "~/Views/Shared/layout1.cshtml";
+}
+
+
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img id="firstImg" src="http://www.stubhubcenter.com/assets/img/Training-Field-7-b6561416a0.JPG" >
+                <div class="carousel-caption">
+                    <h3>
+                        DOC - Daniel & Ofir Community
+                    </h3>
+                    <p id="firstPara">
+                          It's a place for young and talented players to find the best training camps that would help them get better and become pro's!
+                    </p>
+                </div>
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <img id="secondImg" src="http://www.rubbuk.com/images/sports/projects/sunderland/sunderland1_large.jpg">
+                <div class="carousel-caption">
+                    <h3>
+                        DOC - Facilities
+                    </h3>
+                    <p id="secondPara">
+                        We provide 5 Facilities all around the glob with top-class coaches and verius of different camps for all kinds of players! 
+                    </p>
+                </div>
+            </div>
+            <!-- End Item -->
+
+            <div class="item">
+                <img id="ofirImg" src="https://scontent-amt2-1.xx.fbcdn.net/v/t1.0-9/1170706_10152440718129068_26590929_n.jpg?oh=0420699715abeb6faed0c294edc5b654&oe=5A6710B3">
+                <div class="carousel-caption">
+                    <h3>
+                        Ofir Kariv
+                    </h3>
+                    <p id="ofir">
+                        Email: ofirkariv@gmail.com <br /> 
+                        Linkdin: https://www.linkedin.com/in/ofirkariv/ <br />
+                        Facebook:https://www.facebook.com/ofir.kariv <br />
+                        Tinder:<br />
+                    </p>
+                </div>
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <img id="forthImg" src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t31.0-8/20616025_10213778587161778_5477492581956885505_o.jpg?oh=17923ee337ceb3b17420aa0ec84d904e&oe=5A76E1B9">
+                <div class="carousel-caption">
+                    <h3>
+                        Daniel Hake
+                    </h3>
+                    <p id="daniel">
+                    
+                        Email: hakeeee@gmail.com <br />
+                        Linkdin: http://www.linkedin.com/in/daniel-hake-384a848b <br />
+                        Facebook:https://www.facebook.com/hakeeee <br />
+          
+                    Tinder:<br />
+                    </p>
+                </div>
+            </div>
+            <!-- End Item -->
+        </div>
+        <!-- End Carousel Inner -->
+        <ul class="nav nav-pills nav-justified">
+            <li data-target="#myCarousel" data-slide-to="0" class="active">
+                <a href="#">
+                    DOC <small>
+                        what are we
+                    </small>
+                </a>
+            </li>
+            <li data-target="#myCarousel" data-slide-to="1">
+                <a href="#">
+                    DOC<small>
+                       how it's going to work
+                    </small>
+                </a>
+            </li>
+            <li data-target="#myCarousel" data-slide-to="2">
+                <a href="#">
+                    Ofir Kariv<small>
+                        AKA - Lightning buzz
+                    </small>
+                </a>
+            </li>
+            <li data-target="#myCarousel" data-slide-to="3">
+                <a href="#">
+                    Daniel Hake<small>
+                        AKA - The Man
+                    </small>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End Carousel -->
+</div>
+<hr /><hr />
+<h2><b> Our  4 Centers :</b></h2>
+<style>
+    #map {
+        height: 200px;
+        width: 20%;
+        float:left;
+        margin: 15px;
+    }
+
+    #map1 {
+        height: 200px;
+        width: 20%;
+        float: left;
+        margin: 15px;
+    }
+
+    #map2 {
+        height: 200px;
+        width: 20%;
+        float: left;
+        margin: 15px;
+    }
+
+    #map3 {
+        height: 200px;
+        width: 20%;
+        float: left;
+        margin: 15px;
+    }
+</style>
+
+<div id="map"></div>
+<script>
+        function initMap1() {
+            var uluru = { lat: 45.109569, lng: 7.64126 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBywt3GPHwH9CjEk2jsm4PpyL_-AvlIDto&callback=initMap1">
+</script>
+
+<div id="map1"></div>
+<script>
+    function initMap2() {
+        var uluru1 = { lat: 41.380896, lng: 2.12282 };
+        var map1 = new google.maps.Map(document.getElementById('map1'), {
+            zoom: 15,
+            center: uluru1
+        });
+        var marker1 = new google.maps.Marker({
+            position: uluru1,
+            map: map1
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBywt3GPHwH9CjEk2jsm4PpyL_-AvlIDto&callback=initMap2">
+</script>
+
+<div id="map2"></div>
+<script>
+    function initMap3() {
+        var uluru2 = { lat: 51.554888, lng: -0.108438};
+        var map2 = new google.maps.Map(document.getElementById('map2'), {
+            zoom: 15,
+            center: uluru2
+        });
+        var marker2 = new google.maps.Marker({
+            position: uluru2,
+            map: map2
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBywt3GPHwH9CjEk2jsm4PpyL_-AvlIDto&callback=initMap3">
+</script>
+
+<div id="map3"></div>
+<script>
+    function initMap4() {
+        var uluru3 = { lat: 31.751080, lng: 35.19063};
+        var map3 = new google.maps.Map(document.getElementById('map3'), {
+            zoom: 16,
+            center: uluru3
+        });
+        var marker3 = new google.maps.Marker({
+            position: uluru3,
+            map: map3
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBywt3GPHwH9CjEk2jsm4PpyL_-AvlIDto&callback=initMap4">
+</script>
+
+<div id="content">
+    <div id="mainContent">
+        <div>
+
+            <aside>
+                <section>
+                    <script>
+                        (function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                    <div>
+                        <div id="fb-root"></div>
+                        <div class="fb-page" data-href="https://www.facebook.com/Camp-Manager-DOC-1465928126789534//" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+                    </div>
+                </section>
+            </aside>
+        </div>
+            <hr />
+        </div>
+    </div>
+    
+
+
+
+
+
+    @Scripts.Render("https://code.jquery.com/jquery-3.2.1.js")
+    @Scripts.Render("~/Scripts/aboutFunc.js")

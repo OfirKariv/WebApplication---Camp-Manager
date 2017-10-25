@@ -1,0 +1,80 @@
+﻿body {
+    padding-top: 70px;
+}
+
+#daniel {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    color: white;
+    background: gray;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#ofir {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    color: white;
+    background: gray;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#firstImg {
+    height:380px;
+    width:100%;
+}
+#ofirImg {
+    height: 380px;
+    width: 100%;
+}
+
+#firstPara {
+    padding:5px;
+    background:gray;
+    font-size:12px;    
+    border-radius:10px;
+    opacity:0.8;
+}
+#secondImg {
+    height: 380px;
+    width: 100%;
+}
+#secondPara {
+    padding: 5px;
+    background: gray;
+    font-size: 12px;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+#forthImg {
+    height: 380px;
+    width: 100%;
+}
+#myCarousel .nav a small {
+    display: block;
+}
+
+#myCarousel .nav {
+    background: #eee;
+}
+
+.nav-justified > li > a {
+    border-radius: 0px;
+}
+
+.nav-pills > li[data-slide-to="0"].active a {
+    background-color: #16a085;
+}
+
+.nav-pills > li[data-slide-to="1"].active a {
+    background-color: #e67e22;
+}
+
+.nav-pills > li[data-slide-to="2"].active a {
+    background-color: #2980b9;
+}
+
+.nav-pills > li[data-slide-to="3"].active a {
+    background-color: #8e44ad;
+}

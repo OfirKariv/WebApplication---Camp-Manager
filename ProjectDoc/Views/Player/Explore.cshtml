@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ProjectDoc.Models.Camp>
+@{
+    ViewBag.Title = "Explore";
+    <link rel="stylesheet" type="text/css" href="~/Content/exploreStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    Layout = "~/Views/Shared/layout1.cshtml";
+ }
+<div class="jumbotron">
+    <h2 id"headMsg"> Find & Register To Your Next Camp!</h2>
+    <img id="fergiImg" class="img-responsive img-circle" src="~/Lib/alexFerguson.jpg" />
+
+</div>
+<div class="container" id="campTable">
+ <div id="signin" class="navbar-form">
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                            <input id="titleSearch" type="text" class="form-control" name="title" value="" placeholder="Title">                                        
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                            <input id="descSearch" type="text" class="form-control" name="description" value="" placeholder="Description">                                        
+                        </div>
+                          <div class="input-group">
+                             <span class="input-group-addon"></span>
+                             <input id="locationSearch" type="text" class="form-control" name="location" value="" placeholder="Location">
+                         </div>
+                         <div class="input-group">
+                             <span class="input-group-addon"></i></span>
+                             <input id="dateSearch" type="date" class="form-control" name="date" value="" placeholder="Date">
+                         </div>
+
+                        <button type="submit" class="btn btn-primary">Search</button>
+                   </div>
+    <div class="row">
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+            </div>
+            <hr>
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Camp Name</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Location</b></td>
+                            <td class="mailbox-subject">Description </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">Date</td>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td></td>
+                                <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                                <td class="mailbox-name"><a href="read-mail.html">@Html.DisplayFor(modelItem => item.Name)</a></td>
+                                <td class="mailbox-subject"><b class="locationTab">@Html.DisplayFor(modelItem => item.Location)</b></td>
+                                <td class="mailbox-subject">@Html.DisplayFor(m => item.Description) </td>
+                                <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                                <td class="mailbox-date">@Html.DisplayFor(m => item.sDate)</td>
+                            </tr>
+                        }
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                    </tbody>
+                </table><!-- /.table -->
+            </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+        <hr>
+    </div><!-- /. box -->
+</div><!-- /.col -->
+
+
+@Scripts.Render("https://code.jquery.com/jquery-3.2.1.js")
+@Scripts.Render("~/Scripts/exploreFunc.js")

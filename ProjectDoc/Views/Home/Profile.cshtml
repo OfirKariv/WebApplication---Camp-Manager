@@ -1,0 +1,266 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    <link rel="stylesheet" type="text/css" href="~/Content/profileStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+            <div class="well profile">
+                <div class="col-sm-12">
+                    <div class="col-xs-12 col-sm-8">
+                        <h2>Alessandro Del-Piero</h2>
+                        <p><strong>Position: </strong> Striker </p>
+                        <p><strong>Age: </strong> 16 </p>
+                        <p><strong>Team: </strong> Juventus </p>
+                        <p>
+                            <strong>Awards: </strong>
+                            <span class="tags">Ficici</span>
+                            <span class="tags">Top Chef</span>
+                            <span class="tags">Last Stop</span>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 text-center">
+                        <img src="http://www3.pictures.zimbio.com/gi/Alessandro+Del+Piero+Juventus+FC+v+SS+Lazio+5Z_xOCAOaSCl.jpg" alt="" class="img-circle img-responsive">
+                    </div>
+                </div>
+
+                <div class="col-xs-12 divider text-center">
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong> 5 </strong></h2>
+                        <p><small>Camps Finished</small></p>
+                        <button class="btn btn-success btn-block" id="viewCampsBtn"><span class="fa fa-plus-circle"></span> View Camps </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong>2</strong></h2>
+                        <p><small>Upcoming Camps</small></p>
+                        <button class="btn btn-info btn-block" id="viewUpcomingCampsBtn"><span class="fa fa-user"></span> View Camps </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong>10</strong></h2>
+                        <p><small>Reviews</small></p>
+                        <div class="btn-group dropup btn-block">
+                            <button type="button" class="btn btn-primary" id="viewStatsBtn"><span class="fa fa-user"></span> Show Stats </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+Profile top
+    
+
+
+
+    Tab for Camps down
+-->
+<div class="container" id="campTable">
+    <div class="row">
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+            </div>
+            <hr>
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Camp Name</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Location</b></td>
+                            <td class="mailbox-subject">Description </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">Date</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>                        
+                    </tbody>
+                </table><!-- /.table -->
+            </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+        <hr>
+    </div><!-- /. box -->
+</div><!-- /.col -->
+
+<div class="container" id="upcomingCampTable">
+    <div class="row">
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+            </div>
+            <hr>
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Camp Name</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Location</b></td>
+                            <td class="mailbox-subject">Description</td>
+                            <td class="mailbox-attachment"></td>
+                            <td class="mailbox-date">Date</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                    </tbody>
+                </table><!-- /.table -->
+            </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+        <hr>
+    </div><!-- /. box -->
+</div><!-- /.col -->
+
+
+<div class="container" id="statsTable">
+    <div class="row">
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+            </div>
+            <hr>
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Camp Name</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Location </b></td>
+                            <td class="mailbox-subject">Description</td>
+                            <td class="mailbox-attachment goalsTab">GOALS</td>
+                            <td class="mailbox-attachment assistsTab">ASSISTS</td>
+                            <td class="mailbox-attachment interceptionsTab">INTERCEPTIONS</td>
+                            <td class="mailbox-date">Date</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment goalsTab">10</td>
+                            <td class="mailbox-attachment assistsTab">10</td>
+                            <td class="mailbox-attachment interceptionsTab">10</td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b> </td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment goalsTab">10</td>
+                            <td class="mailbox-attachment assistsTab">10</td>
+                            <td class="mailbox-attachment interceptionsTab">10</td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b></td>
+                            <td class="mailbox-subject">One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment goalsTab">10</td>
+                            <td class="mailbox-attachment assistsTab">10</td>
+                            <td class="mailbox-attachment interceptionsTab">10</td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name"><a href="read-mail.html">Attacking</a></td>
+                            <td class="mailbox-subject"><b class="locationTab">Tel-Aviv</b> </td>
+                            <td class="mailbox-subject"> One-On-One & more then 100 shoots per practice </td>
+                            <td class="mailbox-attachment goalsTab">10</td>
+                            <td class="mailbox-attachment assistsTab">10</td>
+                            <td class="mailbox-attachment interceptionsTab">10</td>
+                            <td class="mailbox-date">16/12/1992</td>
+                        </tr>
+                    </tbody>
+                </table><!-- /.table -->
+            </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+        <hr>
+    </div><!-- /. box -->
+</div><!-- /.col -->
+
+@Scripts.Render("https://code.jquery.com/jquery-3.2.1.js")
+@Scripts.Render("~/Scripts/profileFunc.js")

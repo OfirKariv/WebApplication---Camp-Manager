@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ProjectDoc.Models.Camp>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+
+
+}
+
+<h2>Camps List</h2>
+<p>Here Is The List Of All The Camps For You To Manage</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfPlayers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfPlayers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+    
+
+</table>
+<p>
+    @Html.ActionLink("Add New Camp", "Create", null, new { @class = "btn-group" })
+</p>

@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Camp Manager</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/layoutStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Home/MainPage">DOC HOME</a>
+            </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("CAMPS", "Index", "Camp")</li>
+                    <li>@Html.ActionLink("STATS", "Index", "Stats")</li>
+                    <li>@Html.ActionLink("ABOUT", "About", "Admin")</li>
+                    <li>@Html.ActionLink("Log Out", "Index","Home")</li>
+                </ul>
+            </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()     
+    </div>
+
+    <div>
+        
+        <footer>
+            <hr />
+            <p id="layoutFooter">&copy; @DateTime.Now.Year - Camp Manager By Ofir Kariv & Daniel Hake</p>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

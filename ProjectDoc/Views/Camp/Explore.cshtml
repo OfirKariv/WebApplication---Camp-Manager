@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ProjectDoc.Models.Camp>
+@{
+    ViewBag.Title = "Explore";
+    <link rel="stylesheet" type="text/css" href="~/Content/exploreStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    Layout = "~/Views/Shared/layout1.cshtml";
+}
+<div class="jumbotron">
+    <h2 id"headMsg"> Find & Register To Your Next Camp!</h2>
+    <img id="fergiImg" class="img-responsive img-circle" src="~/Lib/alexFerguson.jpg" />
+
+</div>
+
+    @using (Html.BeginForm("Explore", "Camp", FormMethod.Post))
+    {
+        <div class="container" id="campTable">
+            <div id="searchCampForm" class="navbar-form">
+                @Html.AntiForgeryToken()
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    @Html.TextBox("titleSearch", null, new { @class = "form-control", @id = "titleSearch", @type = "text", @name = "title", @value = "", @placeholder = "Title" })
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <!--Html.TextBox("locationSearch", null, new { class = "form-control", id = "locationSearch", type = "text", name = "location",value = "", placeholder = "Location" })-->
+                    @Html.DropDownList("locationSearch", new SelectList(Enum.GetValues(typeof(ProjectDoc.Models.Locations))),"Select Location" ,new { @class = "form-control", @id = "locationSearch", @type = "text", @name = "location", @value = "", @placeholder = "Location" })
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    @Html.TextBox("descSearch", null, new { @class = "form-control", @id = "descSearch", @type = "text", @name = "description", @value = "", @placeholder = "Description" })
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    @Html.TextBox("firstPlayerSearch", null, new { @class = "form-control", @id = "firstPlayerSearch", @type = "text", @name = "firstPlayer", @value = "", @placeholder = "Player1 Participate" })
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    @Html.TextBox("secondPlayerSearch", null, new { @class = "form-control", @id = "secondPlayerSearch", @type = "text", @name = "secondPlayer", @value = "", @placeholder = "Player2 Participate" })
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    }
+                
+        
+    <div class="row">
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+            </div>
+            <hr>
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                            <td class="mailbox-name"><b>Camp Name</b></td>
+                            <td class="mailbox-subject"><b class="locationTab">Location</b></td>
+                            <td class="mailbox-subject"><b>Description</b> </td>
+                            <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                            <td class="mailbox-date"><b>Date</b></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td></td>
+                                <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                                <!--<td class="mailbox-name"><a href="read-mail.html">Html.DisplayFor(modelItem => item.Name)</a></td>                                -->
+                                <td class="mailbox-name"><a href="read-mail.html">@Html.ActionLink(item.Name,"CampPage","Camp",item,null)</a></td>                                
+                                <td class="mailbox-subject"><b class="locationTab"> @Html.DisplayFor(modelItem => item.Location)</b></td>
+                                <td class="mailbox-subject">@Html.DisplayFor(m => item.Description) </td>
+                                <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                                <td class="mailbox-date">@Html.DisplayFor(m => item.sDate)</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table><!-- /.table -->
+            </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+        <hr>
+    </div><!-- /. box -->
+</div><!-- /.col -->
+
+
+@Scripts.Render("https://code.jquery.com/jquery-3.2.1.js")
+@Scripts.Render("~/Scripts/exploreFunc.js")

@@ -1,0 +1,99 @@
+﻿@model ProjectDoc.Models.Camp
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/layoutAdmin.cshtml";
+
+}
+
+<h2>Edit Camp Page</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumOfPlayers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumOfPlayers, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumOfPlayers, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.eDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.eDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.eDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Location, new SelectList(Enum.GetValues(typeof(ProjectDoc.Models.Locations))), "Select Location", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<table class="table table-hover table-striped">
+    <tr>
+        <td></td>
+    <td>Name</td>
+        <td>Goals</td>
+    <td> Assists</td>
+        <td>Intercipetions</td>
+        <td></td>
+    </tr>
+    <tbody>
+        @foreach (var i in Model.Players.Where(a=>a.gotCampStat(Model.ID)))
+        {
+            <tr>
+                <td></td>
+                
+                <td class="mailbox-name">@Html.DisplayFor(name => i.UserName, new { @class = "form-control" })</td>
+                <td class="mailbox-attachment goalsTab">@Html.DisplayFor(name => i.Stats.Where(a=>a.CampID ==Model.ID).First().PlayerGoals, new { @class = "form-control" })</td>
+                <td class="mailbox-attachment assistsTab"> @Html.DisplayFor(name => i.Stats.Where(a => a.CampID == Model.ID).First().PlayerAssists, new { @class = "form-control" })</td>
+                <td class="mailbox-attachment interceptionsTab">@Html.DisplayFor(name => i.Stats.Where(a => a.CampID == Model.ID).First().PlayerInter, new { @class = "form-control" })</td>
+                <td class="mailbox-date">@Html.ActionLink("Edit Player Stats", "Edit", "Stats", i, null)</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>

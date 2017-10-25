@@ -1,0 +1,206 @@
+﻿@model ProjectDoc.Models.Player
+
+@{
+    ViewBag.Title = "Profile";
+    <link rel="stylesheet" type="text/css" href="~/Content/profileStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    Layout = "~/Views/Shared/layout1.cshtml";
+
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+            <div class="well profile">
+                <div class="col-sm-12">
+                    <div class="col-xs-12 col-sm-8">
+                        <h2>@Html.DisplayFor(model => model.UserName)</h2>
+                        <p><strong>Position: </strong> @Html.DisplayFor(model => model.Position) </p>
+                        <p><strong>Age: </strong> @Html.DisplayFor(model => model.Age) </p>
+                        <p><strong>Team: </strong> @Html.DisplayFor(model => model.Team) </p>
+                        <p>
+                            <strong>Awards: </strong>
+                            @if (Model.ficici)
+                            {
+                                <span class="tags">Ficici</span>
+                            }
+                            @if (Model.topChef)
+                            {
+                                <span class="tags">Top Chef</span>
+                            }
+                            @if (Model.lastStop)
+                            {
+                                <span class="tags">Last Stop</span>
+                            }
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 text-center">
+                        <img src="http://futhead.cursecdn.com/static/img/17/players/26501.png" alt="" class="img-circle img-responsive" />
+                        <!--<img src="http://www3.pictures.zimbio.com/gi/Alessandro+Del+Piero+Juventus+FC+v+SS+Lazio+5Z_xOCAOaSCl.jpg" alt="" class="img-circle img-responsive">-->
+                    </div>
+                </div>
+
+                <div class="col-xs-12 divider text-center">
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong> @Model.countFinishedCamps() </strong></h2>
+                        <p><small>Camps Finished</small></p>
+                        <button class="btn btn-success btn-block" id="viewCampsBtn"><span class="fa fa-plus-circle"></span> View Camps </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong>@Model.countUpcomingCamps()</strong></h2>
+                        <p><small>Upcoming Camps</small></p>
+                        <button class="btn btn-info btn-block" id="viewUpcomingCampsBtn"><span class="fa fa-user"></span> View Camps </button>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 emphasis">
+                        <h2><strong>@Model.countStats()</strong></h2>
+                        <p><small>My Stats</small></p>
+                        <div class="btn-group dropup btn-block">
+                            <button type="button" class="btn btn-primary" id="viewStatsBtn"><span class="fa fa-user"></span> Show Stats </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+Profile top
+
+
+
+
+    Tab for Camps down
+-->
+<div class="container" id="campTable">
+    <div class="row">
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+            </div>
+            <hr>
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                            <td class="mailbox-name"><b>Camp Name</b></td>
+                            <td class="mailbox-subject"><b class="locationTab">Location</b></td>
+                            <td class="mailbox-subject">Description</td>
+                            <td class="mailbox-attachment"></td>
+                            <td class="mailbox-date">Date</td>
+                        </tr>
+                            @foreach (var camp in Model.Camps.Where(a => a.isFinished()))
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                                    <td class="mailbox-name"><b>@Html.ActionLink(camp.Name, "CampPage","Camp", camp,null)</b></td>
+                                    <td class="mailbox-subject"><b class="locationTab">@Html.DisplayFor(m => camp.Location)</b></td>
+                                    <td class="mailbox-subject">@Html.DisplayFor(m => camp.Description) </td>
+                                    <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                                    <td class="mailbox-date">@Html.DisplayFor(m => camp.sDate)</td>
+                                </tr>
+                            }
+                    </tbody>
+                </table><!-- /.table -->
+            </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+        <hr>
+    </div><!-- /. box -->
+</div><!-- /.col -->
+
+<div class="container" id="upcomingCampTable">
+    <div class="row">
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+            </div>
+            <hr>
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                            <td class="mailbox-name"><b>Camp Name</b></td>
+                            <td class="mailbox-subject"><b class="locationTab">Location</b></td>
+                            <td class="mailbox-subject">Description</td>
+                            <td class="mailbox-attachment"></td>
+                            <td class="mailbox-date">Date</td>
+                        </tr>
+                        @foreach (var camp in Model.Camps.Where(a=>!a.isFinished()))
+                        {
+                            <tr>
+                                <td></td>
+                                <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                                <!--
+                                    Somehow it couldnt get to the ID field
+                                    in the above table i hardcoded "2" (the list beggins without 0 or 1)
+                                    -->
+                                <td class="mailbox-name"><b>@Html.ActionLink(camp.Name, "CampPage", "Camp", camp, null)</b></td>
+                                <td class="mailbox-subject"><b class="locationTab">@Html.DisplayFor(m => camp.Location)</b></td>
+                                <td class="mailbox-subject">@Html.DisplayFor(m => camp.Description) </td>
+                                <td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+                                <td class="mailbox-date">@Html.DisplayFor(m => camp.sDate)</td>
+                            </tr>
+                        }
+                       
+                    </tbody>
+                </table><!-- /.table -->
+            </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+        <hr>
+    </div><!-- /. box -->
+</div><!-- /.col -->
+
+
+<div class="container" id="statsTable">
+    <div class="row">
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+                <!-- Check all button -->
+            </div>
+            <hr>
+            <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star text-yellow"></i></a></td>
+                            <td class="mailbox-name"><b>Camp Name</b></td>
+                            <td class="mailbox-subject"><b class="locationTab">Location </b></td>
+                            <td class="mailbox-subject">Description</td>
+                            <td class="mailbox-attachment goalsTab">GOALS</td>
+                            <td class="mailbox-attachment assistsTab">ASSISTS</td>
+                            <td class="mailbox-attachment interceptionsTab">INTERCEPTIONS</td>
+                            <td class="mailbox-date">Date</td>
+                        </tr>
+                        @foreach (var stat in Model.Stats)
+                        {
+                            <tr>
+                            <td></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-star-o text-yellow"></i></a></td>
+                            <td class="mailbox-name">@Html.DisplayFor(b => Model.Camps.Where(a => a.ID == stat.CampID).First().Name)</td>
+                            <td class="mailbox-subject"><b class="locationTab">@Html.DisplayFor(b => Model.Camps.Where(a => a.ID == stat.CampID).First().Location)</b></td>
+                            <td class="mailbox-subject">@Html.DisplayFor(b => Model.Camps.Where(a => a.ID == stat.CampID).First().Description) </td>
+                            <td class="mailbox-attachment goalsTab">@Html.DisplayFor(b => stat.PlayerGoals)</td>
+                            <td class="mailbox-attachment assistsTab">@Html.DisplayFor(b => stat.PlayerAssists)</td>
+                            <td class="mailbox-attachment interceptionsTab">@Html.DisplayFor(b => stat.PlayerInter)</td>
+                            <td class="mailbox-date">@Html.DisplayFor(b => Model.Camps.Where(a => a.ID == stat.CampID).First().sDate)</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table><!-- /.table -->
+            </div><!-- /.mail-box-messages -->
+        </div><!-- /.box-body -->
+        <hr>
+    </div><!-- /. box -->
+</div><!-- /.col -->
+
+@Scripts.Render("https://code.jquery.com/jquery-3.2.1.js")
+@Scripts.Render("~/Scripts/profileFunc.js")

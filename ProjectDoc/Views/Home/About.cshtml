@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "About";
+    <link rel="stylesheet" type="text/css" href="~/Content/aboutStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+}
+
+
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img id="firstImg" src="http://www.stubhubcenter.com/assets/img/Training-Field-7-b6561416a0.JPG" >
+                <div class="carousel-caption">
+                    <h3>
+                        DOC - Daniel & Ofir Community
+                    </h3>
+                    <p id="firstPara">
+                          It's a place for young and talented players to find the best training camps that would help them get better and become pro's!
+                    </p>
+                </div>
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <img id="secondImg" src="http://www.rubbuk.com/images/sports/projects/sunderland/sunderland1_large.jpg">
+                <div class="carousel-caption">
+                    <h3>
+                        DOC - Facilities
+                    </h3>
+                    <p id="secondPara">
+                        We provide 5 Facilities all around the glob with top-class coaches and verius of different camps for all kinds of players! 
+                    </p>
+                </div>
+            </div>
+            <!-- End Item -->
+
+            <div class="item">
+                <img src="http://placehold.it/1200x400/2980b9/ffffff&text=Portfolio">
+                <div class="carousel-caption">
+                    <h3>
+                        Ofir Kariv
+                    </h3>
+                    <p id="ofirDetails">
+                        Email: hakeeee@gmail.com <br />
+                        Linkdin: <br />
+                        Facebook: <br />
+                        Tinder:<br />
+</div>
+            </div>
+            <!-- End Item -->
+            <div class="item">
+                <img id="forthImg" src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t31.0-8/20616025_10213778587161778_5477492581956885505_o.jpg?oh=17923ee337ceb3b17420aa0ec84d904e&oe=5A76E1B9">
+                <div class="carousel-caption">
+                    <h3>
+                        Daniel Hake
+                    </h3>
+                    <p id="danielDetails">
+                    Email: hakeeee@gmail.com <br />
+                    Linkdin: <br />
+                    Facebook: <br />
+                    Tinder:<br />
+                    </p>
+                </div>
+            </div>
+            <!-- End Item -->
+        </div>
+        <!-- End Carousel Inner -->
+        <ul class="nav nav-pills nav-justified">
+            <li data-target="#myCarousel" data-slide-to="0" class="active">
+                <a href="#">
+                    DOC <small>
+                        what are we
+                    </small>
+                </a>
+            </li>
+            <li data-target="#myCarousel" data-slide-to="1">
+                <a href="#">
+                    DOC<small>
+                       how it's going to work
+                    </small>
+                </a>
+            </li>
+            <li data-target="#myCarousel" data-slide-to="2">
+                <a href="#">
+                    Ofir Kariv<small>
+                        AKA - Lightning buzz
+                    </small>
+                </a>
+            </li>
+            <li data-target="#myCarousel" data-slide-to="3">
+                <a href="#">
+                    Daniel Hake<small>
+                        AKA - The Man
+                    </small>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End Carousel -->
+</div>
+
+@Scripts.Render("https://code.jquery.com/jquery-3.2.1.js")
+@Scripts.Render("~/Scripts/aboutFunc.js")
